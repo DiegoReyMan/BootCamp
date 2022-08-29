@@ -33,7 +33,7 @@ const cart1 = [
     // Controla el tipo de dato
     if (typeof distance === 'number' && typeof arr === 'object') {
 
-         // Calcuala precio total con descuento y envío
+        // Calcuala precio total con descuento y envío
         arr.forEach(element => {
             if (element.discount) {
                 precioTotal = precioTotal + ((element.price * element.amount) * 0.95);
@@ -47,12 +47,12 @@ const cart1 = [
             precioTotal = precioTotal - (precioTotal * 0.05);
         }
 
-        // Si la distancia es > a 5km, aplicar descuento
+        // Si la distancia es > a 5km, se calcula el precio con el envío
         if (distance > 5) {
             precioTotal = precioTotal + (precioTotal * 0.02);
         }
 
-        // Si la distancia es > a 100km, aplicar descuento
+        // Si la distancia es > a 100km, se calcula el precio con el envío
         if (distance > 100) {
             precioTotal = precioTotal + (precioTotal * 0.1);
         }
@@ -60,11 +60,11 @@ const cart1 = [
         //return precioTotal;
         console.log(precioTotal);
 
-        } else {
+    } else {
             console.log('Debe ingresar una distancia y un array');
-        }
-
     }
+
+  }
     
   
   sendProducts(cart1, 3.4);
