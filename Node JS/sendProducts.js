@@ -71,4 +71,6 @@ const cart1 = [
   sendProducts(cart2, 5.2);
   sendProducts(cart3, 112);
   sendProducts(cart3, "112");
+  sendProducts(1, 123);
+
 
