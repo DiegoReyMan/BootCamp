@@ -124,6 +124,3 @@ function eliminar(str){
 //iguales("Cuchillo", "Tenedor");
 
 //agragar("Miel", "250");
-
-eliminar("Leche");
-consultas("listado");
