@@ -6,4 +6,4 @@ function dividir(num1, num2) {
     }
 }
 
-module.exports.dividir = dividir;
+module.exports = dividir;
