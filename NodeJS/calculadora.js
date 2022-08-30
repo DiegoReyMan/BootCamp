@@ -1,9 +1,9 @@
 // Importa funciones de la calculadora
 
-const suma = require('./sumar');
-const resta = require('./restar');
-const multipcacion = require('./multiplicar');
-const divicion = require('./dividir');
+const suma = require('./CalculadoraModules/sumar');
+const resta = require('./CalculadoraModules/restar');
+const multipcacion = require('./CalculadoraModules/multiplicar');
+const divicion = require('./CalculadoraModules/dividir');
 
 
 console.log(suma(1, 2));
