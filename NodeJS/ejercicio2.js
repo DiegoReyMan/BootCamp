@@ -48,21 +48,24 @@
     let parametro = Object.keys(change);
     let valror = Object.values(change);
 
-    let param = parametro[0];
-
     for (let i = 0; i < products.length && !encontre; i++) {
         if (products[i].name === product) {
             encontre = true;
-            console.log(products[i]);
-            products[i].parametro[0] = valror[0];
-            console.log(products[i]);
+            if (parametro === "price") {
+                products[i].price = valror[0];
+            } else if (parametro === "discount") {
+                products[i].discount = valror[0];
+            } else if (parametro === "stock") {
+                products[i].stock = valror[0];
+            } else {
+                console.log("No se puede modificar el nombre del articilo");
         }
     }
     if (!encontre) {
         console.log("No se encontro el producto");
     }
+    }
   }
-
   
 
  /**
@@ -72,37 +75,36 @@
   function addProduct(arr, product) {
     let encontre = false;
 
-    array.forEach(element => {
-        if (products[i].name === product) {
-            encontre = true;
-            product[i].stock = product[i].stock + 1;
-            return;
-        }
-    });
-
-    // for (let i = 0; i < products.length && !encontre; i++) {
+    // array.forEach(element => {
     //     if (products[i].name === product) {
     //         encontre = true;
     //         product[i].stock = product[i].stock + 1;
+    //         return;
     //     }
-    // }
+    // });
+
+    for (let i = 0; i < products.length && !encontre; i++) {
+        if (products[i].name === product) {
+            encontre = true;
+            product[i].stock = product[i].stock + 1;
+        }
+    }
 
     if (!encontre) {
         products.push(product);
     }
   }
   
-//   editProduct(products, "Parlantes", { price: 525 });
+  editProduct(products, "Parlantes", { price: 525 });
   
-//   addProduct(products, { name: "Procesador", price: 700, discount: false, stock: 2 });
-//   addProduct(products, { name: "Silla", price: 120, discount: false, stock: 10 });
+  addProduct(products, { name: "Procesador", price: 700, discount: false, stock: 2 });
+  addProduct(products, { name: "Silla", price: 120, discount: false, stock: 10 });
   
-//   buyProduct(products, "Mouse", 200);
-//   buyProduct(products, "Mouse", 1);
-//   buyProduct(products, "Mouse", 1);
-//   buyProduct(products, "Mouse", 1);
-//   buyProduct(products, "Mouse", 1);
-//   buyProduct(products, "Mouse", 1);
-//   buyProduct(products, "Mouse", 1);]
-editProduct(products, "Mouse", { name: "xxxxx" });
-console.log(products);
+  buyProduct(products, "Mouse", 200);
+  buyProduct(products, "Mouse", 1);
+  buyProduct(products, "Mouse", 1);
+  buyProduct(products, "Mouse", 1);
+  buyProduct(products, "Mouse", 1);
+  buyProduct(products, "Mouse", 1);
+  buyProduct(products, "Mouse", 1);
+
