@@ -10,5 +10,5 @@ console.log(suma(1, 2));
 console.log(resta(1, 2));
 console.log(multipcacion(1, 2));
 console.log(divicion(1, 3));
-console.log(divicion(3, 0));
+console.log(divicion(3, 0)); 
 
