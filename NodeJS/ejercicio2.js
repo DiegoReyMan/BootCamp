@@ -27,7 +27,7 @@
             if (products[i].stock - qty == 0) {
                 products.splice(i, 1);
             } else if (products[i].stock - qty <= 0){
-                console.log("No hay stock suficiente" + " Hay " + products[i].stock) + " disponibles";
+                console.log(`No hay stock suficiente. Hay ${products[i].stock} unidades disponibles`)
             } else {
                 products[i].stock -= qty;
             }
@@ -51,21 +51,22 @@
     for (let i = 0; i < products.length && !encontre; i++) {
         if (products[i].name === product) {
             encontre = true;
-            if (parametro === "price") {
+            if (parametro[0] === "price") {
                 products[i].price = valror[0];
-            } else if (parametro === "discount") {
+            } else if (parametro[0] === "discount") {
                 products[i].discount = valror[0];
-            } else if (parametro === "stock") {
+            } else if (parametro[0] === "stock") {
                 products[i].stock = valror[0];
             } else {
                 console.log("No se puede modificar el nombre del articilo");
+            }
         }
     }
     if (!encontre) {
         console.log("No se encontro el producto");
     }
-    }
-  }
+}
+  
   
 
  /**
@@ -95,8 +96,10 @@
     }
   }
   
+  console.table(products);
+
   editProduct(products, "Parlantes", { price: 525 });
-  
+
   addProduct(products, { name: "Procesador", price: 700, discount: false, stock: 2 });
   addProduct(products, { name: "Silla", price: 120, discount: false, stock: 10 });
   
@@ -107,4 +110,6 @@
   buyProduct(products, "Mouse", 1);
   buyProduct(products, "Mouse", 1);
   buyProduct(products, "Mouse", 1);
+
+  console.table(products);
 
