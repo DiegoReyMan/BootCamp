@@ -1,9 +1,10 @@
 const fd = require("fs");
 
 const leerJson = (path, command) => {
+
     let dataJson = fd.readFileSync("./tareas.json", "utf8");
     let data = JSON.parse(dataJson);
-    //return data;
+    
     switch (command) {
         case 'listar' :
             data.forEach(elem => {

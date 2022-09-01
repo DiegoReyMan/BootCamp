@@ -1,5 +1,4 @@
 const fd = require("fs");
-
 const escribirJson = (titulo) => {
 
     let tareaNueva = {
@@ -7,7 +6,6 @@ const escribirJson = (titulo) => {
         estado: 'pendiente'
     }
     
-
     let dataJson = fd.readFileSync("./tareas.json", "utf8");
     let data = JSON.parse(dataJson);
 
