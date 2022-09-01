@@ -3,7 +3,12 @@ const escribir = require('./escribirJson');
 const filtrar = require('./filtrarPorEstado');
 
 let command1 = process.argv[2];
-let command2 = process.argv[3];
+
+for (let i = 0; i < 3; i++) {
+    process.argv.shift();
+}
+
+let command2 = process.argv.join(' ');
 
 
 switch (command1) {
