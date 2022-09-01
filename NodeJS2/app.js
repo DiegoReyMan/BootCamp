@@ -10,7 +10,6 @@ for (let i = 0; i < 3; i++) {
 
 let command2 = process.argv.join(' ');
 
-
 switch (command1) {
     case 'crear': 
         let escribirTarea = escribir(command2);
