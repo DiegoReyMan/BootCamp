@@ -6,7 +6,9 @@ const leerJson = (path, command) => {
     //return data;
     switch (command) {
         case 'listar' :
-            console.table(data);
+            data.forEach(elem => {
+                console.table(elem);
+            });
             break;
         case undefined :
             console.log('Atención-Tienes que pasar una acción.');
@@ -17,4 +19,8 @@ const leerJson = (path, command) => {
     
 }
 
+
+
+
 module.exports = leerJson;
+
