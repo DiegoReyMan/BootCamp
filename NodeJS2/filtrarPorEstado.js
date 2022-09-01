@@ -8,26 +8,23 @@ const filtrarPorEstado = (command) => {
 
     switch (command) {
         case 'pendiente':
-            data.forEach(elem => {
-                if (elem.estado === 'pendiente') {
-                    console.table(elem);
-                };
-            });
+            var pendientes = data.filter(function(elem){
+                return elem.estado === 'pendiente';
+            })
+            console.log(pendientes);
             break;
         case 'terminado': {
-            data.forEach(elem => {
-                if (elem.estado === 'terminado') {
-                    console.table(elem);
-                };
-            });
+            var terminados = data.filter(function(elem){
+                return elem.estado === 'terminado';
+            })
+            console.log(terminados);
             break;
         }
         case 'en progreso': {  
-            data.forEach(elem => {
-                if (elem.estado === 'en progreso') {
-                    console.table(elem);
-                };
-            });
+            var enProceso = data.filter(function(elem){
+                return elem.estado === 'en progreso';
+            })
+            console.log(enProceso);
             break;
         }
         default:
