@@ -5,7 +5,8 @@ const url = require('../api/apiData');
 const getData = async () => {
     try {
         const response = await axios.get(url);
-        console.log(response.data);
+        //console.log(response.data);
+        return response;
 
     } catch(err) {   
         console.log(err);
