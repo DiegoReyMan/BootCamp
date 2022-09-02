@@ -2,7 +2,7 @@ const axios = require('axios').default;
 const url = require('../api/apiData');
 
 // Funcion que hace el fetch e imprime en pantalla la data de la url
-const data = async () => {
+const getData = async () => {
     try {
         const response = await axios.get(url);
         console.log(response);
@@ -12,5 +12,5 @@ const data = async () => {
     }
 }
 
-module.exports = data;
+module.exports = getData;
 
