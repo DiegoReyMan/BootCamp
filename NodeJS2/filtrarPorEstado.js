@@ -9,20 +9,20 @@ const filtrarPorEstado = (command) => {
     // Filtra el array de objetos por el estado
     switch (command) {
         case 'pendiente':
-            var pendientes = data.filter(function(elem){
+            var pendientes = data.filter((elem) => {
                 return elem.estado === 'pendiente';
             })
             console.log(pendientes);
             break;
         case 'terminado': {
-            var terminados = data.filter(function(elem){
+            var terminados = data.filter((elem) => {
                 return elem.estado === 'terminado';
             })
             console.log(terminados);
             break;
         }
         case 'en progreso': {  
-            var enProceso = data.filter(function(elem){
+            var enProceso = data.filter((elem)  => {
                 return elem.estado === 'en progreso';
             })
             console.log(enProceso);
