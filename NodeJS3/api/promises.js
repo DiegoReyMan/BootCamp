@@ -5,7 +5,7 @@ const url = require('../api/apiData');
 const getData = () => {
     let promies = axios.get(url)
     .then((result) => {
-        console.log(result)
+        console.log(result.data)
     }).catch((err) => {
         console.log(err)
     });
