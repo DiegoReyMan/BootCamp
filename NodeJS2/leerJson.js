@@ -8,7 +8,7 @@ const leerJson = (path, command) => {
     
     switch (command) {
         case 'listar' :
-            data.forEach(elem => {
+            data.forEach((elem) => {
                 console.table(elem);
             });
             break;
