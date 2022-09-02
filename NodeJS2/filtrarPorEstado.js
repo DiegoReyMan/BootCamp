@@ -1,11 +1,12 @@
 const fd = require("fs");
-const { monitorEventLoopDelay } = require("perf_hooks");
 
 const filtrarPorEstado = (command) => {
 
+    // Lee el archivo de la "db" y lo trasnfora en un objeto
     let dataJson = fd.readFileSync("./tareas.json", "utf8");
     let data = JSON.parse(dataJson);
 
+    // Filtra el array de objetos por el estado
     switch (command) {
         case 'pendiente':
             var pendientes = data.filter(function(elem){

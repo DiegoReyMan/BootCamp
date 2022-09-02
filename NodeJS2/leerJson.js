@@ -2,6 +2,7 @@ const fd = require("fs");
 
 const leerJson = (path, command) => {
 
+    // Lee el archivo de la "db" y lo trasnfora en un objeto
     let dataJson = fd.readFileSync("./tareas.json", "utf8");
     let data = JSON.parse(dataJson);
     
