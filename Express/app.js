@@ -20,6 +20,7 @@ app.get('/contacto/:idContacto', (req, res) => {
     res.send(`Esta es la pagina del contacto ${contacto}`)
 });
 
+
 app.get('*', (req, res) => {
-    res.send(`Error 404`)
+    res.send('/erro404')
 });
