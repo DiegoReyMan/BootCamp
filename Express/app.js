@@ -7,10 +7,6 @@ app.get('/',(req, res) => {
     res.send('Home')
 });
 
-app.get('/producto', (req, res) => {
-    res.send('Producto')
-});
-
 app.get('/contacto', (req, res) => {
     res.send('Contacto')
 });
@@ -20,6 +16,14 @@ app.get('/contacto/:idContacto', (req, res) => {
     res.send(`Esta es la pagina del contacto ${contacto}`)
 });
 
+app.get('/producto', (req, res) => {
+    res.send('Producto')
+});
+
+app.get('/contacto/:idPoducto', (req, res) => {
+    const producto = req.params.idPoducto;
+    res.send(`Esta es la pagina del producto ${producto}`)
+});
 
 app.get('*', (req, res) => {
     res.send('/erro404')
