@@ -2,9 +2,10 @@ const express = require('express');
  
 const router = express.Router();
 
-router.get('/', (req, res) => {
-    res.send('Producto')
-});
+const productosContrller = require('../controllers/productosController');
+
+
+router.get('/', productosContrller.listarProductos);
 
 router.get('/:idPoducto', (req, res) => {
     const producto = req.params.idPoducto;
