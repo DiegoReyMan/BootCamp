@@ -6,7 +6,7 @@ const rutasProductos = require('./routes/productosRoutes');
 const rutasContacto = require('./routes/usuariosRoutes');
 
 // Levanta el servidor 
-app.listen(3000, () => console.log('El servidor esta corriendo'));
+app.listen(3000, () => console.log('Server online'));
 
 // Atiende a /productos y /usuarios
 app.use('/producto', rutasProductos);
