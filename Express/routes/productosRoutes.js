@@ -2,25 +2,13 @@ const express = require('express');
  
 const router = express.Router();
 
-const productosContrller = require('../controllers/productosController');
+const productosCtr = require('../controllers/productosController');
 
+router.get('/', productosCtr.listarProductos)
 
-router.get('/', productosContrller.listarProductos);
+router.get('/:idPoducto', productosCtr.infoProducto);
 
-router.get('/:idPoducto', (req, res) => {
-    const producto = req.params.idPoducto;
-    res.send(`Esta es la pagina del producto ${producto}`)
-});
-
-router.get('/:idPoducto/comentarios/:idComentario?', (req, res) => {
-    const producto = req.params.idPoducto;
-    const comentario = req.params.idComentario;
-    if (comentario == undefined) {
-        res.send(`Esta es la pagina del comentario del ${producto}`)
-    } else {
-        res.send(`Esta es la pagina del comentario del ${producto} viendo el comentarios ${comentario}`)
-    }
-});
+router.get('/:idPoducto/comentarios/:idComentario?', productosCtr.comentarioProducto);
 
 module.exports = router;
 
