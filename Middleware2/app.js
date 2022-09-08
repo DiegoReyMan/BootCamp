@@ -4,11 +4,15 @@ const fs = require('fs');
 const validarAdmin = require('./middleware/userLogs.js');
 
 app.use(express.json());
+
+// Middleware global
 app.use((req,res,next) => {
    fs.appendFileSync('./logs/userLogs.txt', 'El usuario ingresó a la ruta: ' + req.url + '\n');
    next();
 })
 
+
+// Usa el middleware validarAdmin 
 app.get('/admin', validarAdmin, (req,res) => {
    res.send(req.respuesta);
 })
