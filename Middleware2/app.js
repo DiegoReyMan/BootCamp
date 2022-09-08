@@ -1,41 +1,40 @@
-// ************ Require's ************
-const createError = require('http-errors');
-const cookieParser = require('cookie-parser');
 const express = require('express');
-const logger = require('morgan');
-const path = require('path');
-
-// ************ express() - (don't touch) ************
 const app = express();
+const fs = require('fs');
+const validarAdmin = require('./middleware/userLogs.js');
 
-// ************ Middlewares - (don't touch) ************
-app.use(express.urlencoded({ extended: false }));
-app.use(logger('dev'));
 app.use(express.json());
-app.use(cookieParser());
+app.use((req,res,next) => {
+   fs.appendFileSync('./logs/userLogs.txt', 'El usuario ingresó a la ruta: ' + req.url + '\n');
+   next();
+})
 
+app.get('/admin', validarAdmin, (req,res) => {
+   res.send(req.respuesta);
+})
 
-// ************ WRITE YOUR CODE FROM HERE ************
-// ************ Route System require and use() ************
-const mainRouter = require('./routes/main');
-app.use('/', mainRouter);
-
-
-// ************ DON'T TOUCH FROM HERE ************
-// ************ catch 404 and forward to error handler ************
-app.use((req, res, next) => next(createError(404)));
-
-// ************ error handler ************
-app.use((err, req, res, next) => {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.path = req.path;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+app.get('/', (req, res) => {
+   res.status(200).json({
+      ok: true,
+      msg: 'Inicio'
+   });
 });
 
-// ************ exports app - dont'touch ************
-module.exports = app;
+app.get('/services', (req, res) => {
+   res.status(200).json({
+      ok: true,
+      msg: 'Services'
+   });
+});
+
+app.get('/services/design', (req, res) => {
+   res.status(200).json({
+      ok: true,
+      msg: 'Design'
+   });
+});
+
+
+app.listen(3000, () => {
+   console.log('Servidor corriendo en el puerto 3000');
+});
