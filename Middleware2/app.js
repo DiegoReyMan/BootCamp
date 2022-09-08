@@ -24,6 +24,7 @@ app.get('/', (req, res) => {
    });
 });
 
+// Devuelve JSON con mesnaje y estado
 app.get('/services', (req, res) => {
    res.status(200).json({
       ok: true,
@@ -31,13 +32,13 @@ app.get('/services', (req, res) => {
    });
 });
 
+// Devuelve JSON con mesnaje y estado
 app.get('/services/design', (req, res) => {
    res.status(200).json({
       ok: true,
       msg: 'Design'
    });
 });
-
 
 app.listen(3000, () => {
    console.log('Servidor corriendo en el puerto 3000');
