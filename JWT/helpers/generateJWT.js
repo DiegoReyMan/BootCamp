@@ -11,7 +11,7 @@ const generateJWT = (payload) => {
          if (err) {
             console.log(err);
             reject('No se pudo crear el token')
-         }
+         }  
 
          resolve(token);
       })
