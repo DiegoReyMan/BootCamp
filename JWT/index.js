@@ -1,4 +1,6 @@
+// Siempre para usar .env
 require('dotenv').config();
+
 const express = require('express');
 const usersRoutes = require('./routes/usersRoutes');
 const productsRoutes = require('./routes/productsRoutes');
@@ -6,6 +8,7 @@ const productsRoutes = require('./routes/productsRoutes');
 
 const app = express();
 
+// Usar siempre para poder enviasr JSON por res
 app.use(express.json());
 
 app.get('/', (req, res) => {

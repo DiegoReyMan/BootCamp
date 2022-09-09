@@ -3,7 +3,6 @@ const { request } = require('express')
 
 const verifyJWT = (req = request, res, next) => {
 
-   // console.log(req.headers);
    const { authorization: token } = req.headers;
 
    try {

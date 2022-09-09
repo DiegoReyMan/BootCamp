@@ -13,9 +13,12 @@ const login = async (req, res) => {
    const { userName } = req.body;
 
    try {
-      const dbUsers = fs.readFileSync("C:/Users/Smash/Desktop/Digital House/Bootcamp-node/Express/Clase 5 - Json Web Token/db/users.json", 'utf-8');
+      // Se le de users.json
+      const dbUsers = fs.readFileSync("/Users/diegoleandrorey/BootCamp/JWT/db/users.json", 'utf-8');
+      // Se convierte a objeto
       const users = JSON.parse(dbUsers);
 
+      // Busca el usuario en la db
       const user = users.find(user => user.userName === userName);
       if (!user) {
          return res.status(400).json({
@@ -31,6 +34,7 @@ const login = async (req, res) => {
          user,
          token
       })
+   // Contepla el error de no poder accerder a la db
    } catch (error) {
       console.log(error);
       res.status(500).json({
@@ -43,7 +47,5 @@ const login = async (req, res) => {
 
 
 
-module.exports = {
-   login,
-   main,
-}
+module.exports = { login, main }
+
