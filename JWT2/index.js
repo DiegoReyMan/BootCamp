@@ -1,14 +1,16 @@
 require('dotenv').config();
 
 const express = require('express');
+const verifyJWS = require('./middlewares/verifyJWT');
+
 const usersRoutes = require('./routes/usersRoutes');
 const productsRoutes = require('./routes/productsRoutes');
-const verifyJWS = require('./middlewares/verifyJWT');
+
 
 const app = express();
 const PORT = 3000;
 
-app.use(express.json());
+app.use(express.json()); 
 
 app.use('/users', usersRoutes);
 app.use('/products', verifyJWS, productsRoutes);
