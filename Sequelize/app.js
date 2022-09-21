@@ -1,24 +1,44 @@
 
-const express = require('express');
-const verifyJWS = require('./middlewares/verifyJWT');
-const db = require('sequelize');
+const express = require('express')
+const { sequelize } = require('./database/models')
+const db = require('./database/models')
+const Op = db.Sequelize.Op
 
-const usersRoutes = require('./routes/usersRoutes');
-const productsRoutes = require('./routes/productsRoutes');
+const app = express()
+
+app.get('/create',async (req,res) => {
+try{
+    const createpersona = await db.Persona.create({
+        nombre: "Juan",
+        apellido: "Perez",
+        email: "perez@correo.com"
+    })
+    res.send("Persona creada")
+} catch(err){
+    console.log("Err",err.sqlMessage)
+    res.send("Completa todos los datos requeridos")
+}   
+})
+
+app.get('/find',async (req,res) => {
+try{
+        const findpersona = await db.Persona.findAll({
+            order: [["edad","ASC"],["nombre","DESC"]]
+        })
+        res.send(findpersona)
+} catch(err){
+    console.log("Err",err.sqlMessage)
+    res.send("No se encontraron registros")
+}   
+})
 
 
-const app = express();
-const PORT = 3000;
+ 
 
-app.use(express.json()); 
-
-app.use('/', usersRoutes);
-
-
-
-app.listen(PORT, () => {
-   console.log(`Servidor corriendo en el puerto ${PORT}`);
-});
+app.listen(3000, async () => {
+    //sequelize.sync({force: false}) //danger
+    console.log("Server corriendo en puerto 3000")
+})
 
 
 
